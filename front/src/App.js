@@ -9,7 +9,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      Books: []
+      books: []
     };
   }
 
@@ -23,28 +23,22 @@ class App extends Component {
       .then(data => {
         console.log("got data!", data);
         this.setState({
-          Books: data
+          books: data
         });
       });
   }
 
   renderBooks() {
-    return this.state.Books.map((c, i) => <Book key={i++} book={c} />);
+    return this.state.books.map((c, i) => <Book key={i++} book={c} />);
   }
 
   postData(url, data) {
     // Default options are marked with *
     return fetch(url, {
       method: "POST", // *GET, POST, PUT, DELETE, etc.
-      // mode: "cors", // no-cors, cors, *same-origin
-      // cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-      // credentials: "same-origin", // include, *same-origin, omit
       headers: {
         "Content-Type": "application/json"
-        // "Content-Type": "application/x-www-form-urlencoded",
       },
-      // redirect: "follow", // manual, *follow, error
-      // referrer: "no-referrer", // no-referrer, *client
       body: JSON.stringify(data) // body data type must match "Content-Type" header
     }).then(response => response.json()); // parses response to JSON
   }
@@ -59,21 +53,28 @@ class App extends Component {
 
     // Post
     console.log("Send the post");
-    this.postData("/api/createBook", {
-      text: this.myInputTitle.value,
-      author: this.myInputAuthor.value,
-      rented: false
-    }).then(result => {
-      console.log("Inserted the data" + result);
+    fetch("/api/createBook", {
+      method: "POST", // *GET, POST, PUT, DELETE, etc.
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        text:this.myInputAuthor.value,
+        author: this.myInputAuthor.value,
+        rented: false
+      }) 
+    }).then(response => response.json())
+      .then(result => {
+        console.log("Inserted the data" + result);
 
-      //clearing input
-      this.myInputTitle.value = "";
-      this.myInputAuthor.value = "";
+        //clearing input
+        this.myInputTitle.value = "";
+        this.myInputAuthor.value = "";
 
-      // Redraw
-      console.log("Reload data");
-      this.reloadData();
-    });
+        // Redraw
+        console.log("Reload data");
+        this.reloadData();
+      });
   }
 
   render() {
