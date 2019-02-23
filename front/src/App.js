@@ -32,17 +32,6 @@ class App extends Component {
     return this.state.books.map((c, i) => <Book key={i++} book={c} />);
   }
 
-  postData(url, data) {
-    // Default options are marked with *
-    return fetch(url, {
-      method: "POST", // *GET, POST, PUT, DELETE, etc.
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(data) // body data type must match "Content-Type" header
-    }).then(response => response.json()); // parses response to JSON
-  }
-
   onCreateBook(event) {
     event.preventDefault();
 
@@ -54,7 +43,7 @@ class App extends Component {
     // Post
     console.log("Send the post");
     fetch("/api/createBook", {
-      method: "POST", // *GET, POST, PUT, DELETE, etc.
+      method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
