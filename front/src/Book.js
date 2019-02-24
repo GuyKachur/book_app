@@ -26,7 +26,7 @@ export default class Book extends Component {
     return (
       <div className="Book col-5">
         <button
-          className={this.decideButtonClass}
+
           onClick={this.rentChange.bind(this)}
         >
           <span role="img" aria-label="rent_book">
@@ -36,7 +36,7 @@ export default class Book extends Component {
         &nbsp;&nbsp;
         <span>{"Rented " + this.state.rented}</span>
         &nbsp;&nbsp;
-        <span>{"Book Title: " + this.props.book.title}</span>
+        <span>{"Book Title: " + this.props.book.text}</span>
         &nbsp;&nbsp;
         <span>{"Author: " + this.props.book.author}</span>
       </div>
@@ -45,7 +45,5 @@ export default class Book extends Component {
 }
 
 Book.propTypes = {
-  title: PropTypes.object.isRequired,
-  author: PropTypes.object.isRequired,
-  rented: Boolean
+  book: PropTypes.object.isRequired
 };

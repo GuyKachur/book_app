@@ -84,3 +84,6 @@ typings/
 
 # Login Files
 logindata.js
+
+yarn.lock
+package-lock.json

@@ -8,7 +8,7 @@
   "dependencies": {
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
-    "eslint": "^5.14.1",
+    "eslint": "5.12.0",
     "eslint-plugin-react": "^7.12.4",
     "express": "~4.16.0",
     "http-errors": "~1.6.2",
