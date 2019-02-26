@@ -24,21 +24,20 @@ export default class Book extends Component {
 
   render() {
     return (
-      <div className="Book col-5">
-        <button
-
-          onClick={this.rentChange.bind(this)}
-        >
-          <span role="img" aria-label="rent_book">
-            📖
-          </span>
-        </button>
-        &nbsp;&nbsp;
-        <span>{"Rented " + this.state.rented}</span>
-        &nbsp;&nbsp;
-        <span>{"Book Title: " + this.props.book.text}</span>
-        &nbsp;&nbsp;
-        <span>{"Author: " + this.props.book.author}</span>
+      
+      <div className="Book card col-md-4 col-lg-3">
+        <div className="cardImageBox">
+          <img className="card-img-top cardImage" src={this.props.book.bookURL} alt="Card image"/>
+        </div>
+        <div className="card-body align-self-baseline">
+          <h4 className="card-title">{this.props.book.title}</h4>
+          <h5>{this.props.book.author}</h5>
+          <p>{this.props.book.description}</p>
+          {/*<span>{"Rented: " + this.state.rented}</span>*/}
+          <button onClick={this.rentChange.bind(this)} className="btn btn-primary">
+            Rent Me
+          </button>
+        </div>
       </div>
     );
   }

@@ -1,0 +1,16 @@
+
+.cardImage{
+	width: 100%;	
+}
+
+.cardImageBox{
+	max-height: 450px;
+	overflow: hidden;
+}
+
+.Book{
+	margin: 1em;
+	padding: 0;
+	max-width: 300px;
+	/*height: 510px;*/
+}
