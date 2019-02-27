@@ -1,20 +1,25 @@
 {
-  "name": "book-app",
-  "version": "0.0.0",
-  "private": true,
-  "scripts": {
-    "start": "node ./bin/www"
-  },
-  "dependencies": {
-    "cookie-parser": "~1.4.3",
-    "debug": "~2.6.9",
-    "eslint": "5.12.0",
-    "eslint-plugin-react": "^7.12.4",
-    "express": "~4.16.0",
-    "http-errors": "~1.6.2",
-    "jade": "~1.11.0",
-    "mongodb": "^3.1.13",
-    "morgan": "~1.9.0",
-    "validator": "^10.11.0"
-  }
+    "name": "book-app",
+    "version": "0.0.0",
+    "private": true,
+    "scripts": {
+        "heroku-postbuild": "cd front && yarn install && yarn build",
+        "start": "node ./bin/www"
+    },
+    "dependencies": {
+        "cookie-parser": "~1.4.3",
+        "debug": "~2.6.9",
+        "eslint": "5.12.0",
+        "eslint-plugin-react": "^7.12.4",
+        "express": "~4.16.0",
+        "http-errors": "~1.6.2",
+        "jade": "~1.11.0",
+        "mongodb": "^3.1.13",
+        "morgan": "~1.9.0",
+        "validator": "^10.11.0"
+    },
+    "engines": {
+        "node": "10.15.0",
+        "yarn": "1.13.0"
+    }
 }
