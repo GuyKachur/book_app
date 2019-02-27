@@ -4,9 +4,9 @@ import { NavLink } from "react-router-dom";
 export default class MenuBar extends Component {
   render() {
     return (
-      <div>
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
-          <NavLink className="navbar-brand" to="/">Book Trader</NavLink>
+      <nav className="navbar navbar-expand-md navbar-dark bg-dark">
+        <div className="container d-flex">
+          <NavLink className="navbar-brand" to="/">Book Lender</NavLink>
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
@@ -24,9 +24,8 @@ export default class MenuBar extends Component {
               </li>
             </ul>
           </div>
-        </nav>
-
-      </div>
+        </div>  
+      </nav>
     );
   }
 }

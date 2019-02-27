@@ -4,7 +4,6 @@ import "./App.css";
 
 import MainTemplate from "./MainTemplate.js";
 import Book from "./Book.js";
-import Submission from "./Submission.js";
 
 
 class App extends Component {

@@ -7,12 +7,12 @@ function connect(callback) {
     var MongoClient = require('mongodb').MongoClient;
 
     // MongoDB.Atlas
-    // var url = loginURL;
-    // var client = new MongoClient(url, { useNewUrlParser: true });
+    var url = loginURL;
+    var client = new MongoClient(url, { useNewUrlParser: true });
 
     // MongoDB.Local
-    var url = 'mongodb://localhost:27017';
-    var client = new MongoClient(url, { useNewUrlParser: true });
+    // var url = 'mongodb://localhost:27017';
+    // var client = new MongoClient(url, { useNewUrlParser: true });
 
     console.log('trying connect.');
     client.connect(function(err) {
