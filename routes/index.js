@@ -1,18 +1,20 @@
 var express = require('express');
 var router = express.Router();
 var loginURL = require('../logindata.js');
+const validateBookSubInput = require('../validation/submit');
 
 function connect(callback) {
     var MongoClient = require('mongodb').MongoClient;
 
-    // var url = loginURL;
+    // MongoDB.Atlas
+    var url = loginURL;
+    var client = new MongoClient(url, { useNewUrlParser: true });
 
+    // MongoDB.Local
+    // var url = 'mongodb://localhost:27017';
     // var client = new MongoClient(url, { useNewUrlParser: true });
 
-    var url = 'mongodb://localhost:27017';
-
-    var client = new MongoClient(url);
-
+    console.log('trying connect.');
     client.connect(function(err) {
         if (err !== null) throw err;
 
@@ -49,10 +51,20 @@ function createBook(c, callback) {
 }
 
 router.post('/createBook', function(req, res, next) {
+    const { errors, isValid } = validateBookSubInput(req.body);
+
+    // validation
+    if (!isValid) {
+        console.log('input invalid');
+        console.log(errors);
+        return res.status(400).json(errors);
+    }
     createBook(
         {
-            text: req.body.text,
+            title: req.body.title,
             author: req.body.author,
+            description: req.body.description,
+            bookURL: req.body.bookURL,
             isrented: false
         },
         function(result) {
