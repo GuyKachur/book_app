@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-console.log(process.env.DBLOGIN);
 var loginURL = process.env.DBLOGIN || require('../logindata.js');
 
 const validateBookSubInput = require('../validation/submit');
