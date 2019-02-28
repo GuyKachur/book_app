@@ -2,7 +2,7 @@ import React from "react";
 import { Item, Button } from "semantic-ui-react";
 
 const BookMapCard = props => {
-  const handleClick = e => {
+  const handleClick = () => {
     alert("Book Rented!");
   };
 

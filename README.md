@@ -5,7 +5,7 @@ Web application for posting/requesting books to share:
 The objective of this CS5610 project 2 is to create a web application using nodejs, express, mongodb, bootstrap, and react.
 
 ## Preview
-![image](./siteScreenShot.jpg)
+![image](./bookLenderDemo.gif)
 
 
 ## Tech

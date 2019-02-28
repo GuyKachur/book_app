@@ -50,10 +50,6 @@ class App extends Component {
               {" "}
               {this.renderBooks()}{" "}
             </div>
-
-            {/*<Submission/>*/}
-
-            {/*<div className="submissionContainer row justify-content-center"> {this.renderSubmission()} </div>*/}
           </div>
         </div>
       </MainTemplate>
