@@ -40,7 +40,7 @@ Then you have the backend running on http://localhost:3001
 
 ## Links
 - [Website](https://lit-bayou-56425.herokuapp.com/)
-- [Demo Video](https://www.youtube.com/)
+- [Demo Video](https://www.youtube.com/watch?v=FXrf8PMUsao&feature=youtu.be)
 - [Slides](https://docs.google.com/presentation/d/1-AEuXX15MnBrX2XakXUGyQSA-q80jrTdEvHsF9cax3M/edit?usp=sharing)
 - [CS5610 Website](http://johnguerra.co/classes/webDevelopment_spring_2019/)
 
