@@ -43,7 +43,7 @@ class App extends Component {
     return (
       <MainTemplate>
         <div className="App">
-          <div className="container">
+          <div className="container-fluid">
             <h1 className="text-center">Books to Rent</h1>
 
             <div className="bookContainer row justify-content-center">

@@ -34,7 +34,7 @@ export default class BookMapContainer extends React.Component {
           "https://maps.googleapis.com/maps/api/js?key=AIzaSyBnAAq2EJ8xiHsTmyUu3D2Ba_OWO8DoUEE&v=3.exp&libraries=geometry,drawing,places"
         }
         loadingElement={<div style={{ height: "100%" }} />}
-        containerElement={<div style={{ height: `600px`, width: `600px` }} />}
+        containerElement={<div style={{ height: `600px`, width: `100%` }} />}
         mapElement={<div style={{ height: `100%` }} />}
         toggleShowPage={this.toggleShowPage}
         activeMarker={this.state.activeMarker}
