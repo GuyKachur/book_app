@@ -31,7 +31,7 @@ export default class BookMapPage extends App {
     console.log(this.state.books);
     return (
       <MainTemplate>
-        <div className="container text-center">
+        <div className="container-fluid text-center">
           <h1>Book Map</h1>
           <div className="row justify-content-center">
             <BookMapContainer
