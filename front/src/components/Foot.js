@@ -1,8 +1,9 @@
 /* eslint-disable no-unused-vars */
-import React, {Component} from "react";
+import React, { Component } from "react";
+import Submission from "./Submission.js";
+import { Link } from "react-router-dom";
 
 class Foot extends Component {
-
   render() {
     return (
       <footer className="bg-light">
@@ -15,19 +16,18 @@ class Foot extends Component {
             <div className="col-lg-4 col-sm-6">
               <h5>Books</h5>
               <ul>
-                <li><a href="/">Browse the Books</a>
+                <li>
+                  <Link to="/">Browse the Books</Link>
                 </li>
-                <li><a href="/submit">Submit a New Book</a>
+                <li>
+                  <Link to="/submit">Submit a New Book</Link>
                 </li>
               </ul>
             </div>
             <div className="col-lg-4 col-sm-12">
-              <h5></h5>
+              <h5 />
               <form>
-                <div className="form-group">
-                  {/*<input className="form-control" type="text"/>*/}
-                </div>
-                {/*<button type="submit submit-btn" className="btn">Subscribe</button>*/}
+                <div className="form-group" />
               </form>
             </div>
           </div>

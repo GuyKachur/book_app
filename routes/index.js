@@ -66,6 +66,7 @@ router.post('/createBook', function(req, res, next) {
             author: req.body.author,
             description: req.body.description,
             bookURL: req.body.bookURL,
+            location: req.body.location,
             isrented: false
         },
         function(result) {

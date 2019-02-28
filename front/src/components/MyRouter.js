@@ -5,6 +5,7 @@ import App from "./App.js";
 import AboutPage from "./AboutPage.js";
 import Submission from "./Submission.js";
 import MainTemplate from "./MainTemplate.js";
+import BookMapPage from "./BookMapPage.js";
 
 const NoMatch = ({ location }) => (
   <div>
@@ -25,11 +26,10 @@ export default class MyRouter extends Component {
             <Route exact path="/" component={App} />
             <Route path="/about" component={AboutPage} />
             <Route path="/submit" component={Submission} />
+            <Route path="/bookmap" component={BookMapPage} />
             <Route component={NoMatch} />
           </Switch>
         </div>
-
-
       </Router>
     );
   }

@@ -24,17 +24,23 @@ export default class Book extends Component {
 
   render() {
     return (
-      
       <div className="Book card col-md-4 col-lg-3">
         <div className="cardImageBox">
-          <img className="card-img-top cardImage" src={this.props.book.bookURL} alt="Card image"/>
+          <img
+            className="card-img-top cardImage"
+            src={this.props.book.bookURL}
+            alt="Card image"
+          />
         </div>
         <div className="card-body align-self-baseline">
           <h4 className="card-title">{this.props.book.title}</h4>
           <h5>{this.props.book.author}</h5>
           <p>{this.props.book.description}</p>
           {/*<span>{"Rented: " + this.state.rented}</span>*/}
-          <button onClick={this.rentChange.bind(this)} className="btn btn-primary">
+          <button
+            onClick={this.rentChange.bind(this)}
+            className="btn btn-primary"
+          >
             Rent Me
           </button>
         </div>

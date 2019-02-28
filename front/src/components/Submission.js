@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import request from "superagent";
 import { Redirect } from "react-router-dom";
-import {Route} from "react-router-dom";
+import { Route } from "react-router-dom";
 
 import Book from "./Book.js";
 
 import MainTemplate from "./MainTemplate.js";
-
 
 export default class Submission extends Component {
   constructor(props) {
@@ -17,33 +16,66 @@ export default class Submission extends Component {
 
     this.onCreateBook = this.onCreateBook.bind(this);
   }
+
+  foundLocation(position) {
+    var lat = position.coords.latitude;
+    var long = position.coords.longitude;
+
+    return { location: { lat: lat, lng: long } };
+  }
+
+  noLocation() {
+    return { longitude: "", latitude: "" };
+  }
   onCreateBook(event) {
     event.preventDefault();
-    const body = JSON.stringify({
-      title:this.myInputTitle.value,
+    let body = {
+      title: this.myInputTitle.value,
       author: this.myInputAuthor.value,
-      // genre: this.inGenre.value,
       description: this.myInputDescription.value,
       bookURL: this.myInputBookURL.value,
-      // location: this.inLocation.value,
       rented: false
-    });
+    };
+    navigator.geolocation.getCurrentPosition(
+      position => {
+        console.log({
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        });
+        body.location = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
+        request
+          .post("/api/createBook")
+          .set("Content-Type", "application/json")
+          .send(JSON.stringify(body))
+          .end((err, res) => {
+            console.log(res);
+            this.setState({ redirectToReferrer: true });
+          });
+      },
+      err => {
+        body.location = {
+          lat: "37.108403",
+          lng: "-122.337208"
+        };
+        request
+          .post("/api/createBook")
+          .set("Content-Type", "application/json")
+          .send(JSON.stringify(body))
+          .end((err, res) => {
+            console.log(res);
+            this.setState({ redirectToReferrer: true });
+          });
+      }
+    );
     console.log(body);
-    request
-      .post("/api/createBook")
-      .set("Content-Type", "application/json")
-      .send(body)
-      .end((err, res)=>{
-        console.log(res);
-        this.setState({redirectToReferrer: true});
-      });
   }
 
   render() {
     if (this.state.redirectToReferrer) {
-      return (
-        <Redirect to={"/"}/>
-      );
+      return <Redirect to={"/"} />;
     }
     return (
       <MainTemplate>
@@ -51,9 +83,8 @@ export default class Submission extends Component {
           <h1 className="text-center">Submit a Book</h1>
           <div className="row justify-content-center">
             <form className="" onSubmit={this.onCreateBook.bind(this)}>
-
               <div className="form-group">
-                <label htmlFor="inTitle">{" "}Title:</label>
+                <label htmlFor="inTitle"> Title:</label>
                 <input
                   className="form-control"
                   id="inTitle"
@@ -62,9 +93,9 @@ export default class Submission extends Component {
                   ref={input => (this.myInputTitle = input)}
                 />
               </div>
-            
+
               <div className="form-group">
-                <label htmlFor="inAuthor">{" "}Author:</label>
+                <label htmlFor="inAuthor"> Author:</label>
                 <input
                   className="form-control"
                   id="inAuthor"
@@ -75,7 +106,7 @@ export default class Submission extends Component {
               </div>
 
               <div className="form-group">
-                <label htmlFor="inDescription">{" "}Description:</label>
+                <label htmlFor="inDescription"> Description:</label>
                 <input
                   className="form-control"
                   id="inDescription"
@@ -86,7 +117,7 @@ export default class Submission extends Component {
               </div>
 
               <div className="form-group">
-                <label htmlFor="inBookURL">{" "}Book Image URL:</label>
+                <label htmlFor="inBookURL"> Book Image URL:</label>
                 <input
                   className="form-control"
                   id="inBookURL"
@@ -95,12 +126,11 @@ export default class Submission extends Component {
                   ref={input => (this.myInputBookURL = input)}
                 />
               </div>
-
               <input type="submit" value="Submit" />
             </form>
           </div>
         </div>
-        <Route exact path="/" component={Book}/>
+        <Route exact path="/" component={Book} />
       </MainTemplate>
     );
   }

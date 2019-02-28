@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import MenuBar from "./MenuBar.js";
 import Foot from "./Foot.js";
 
-
 export default class MainTemplate extends Component {
   render() {
     return (
@@ -18,9 +17,8 @@ export default class MainTemplate extends Component {
   }
 }
 
-
 MainTemplate.propTypes = {
-  children:  PropTypes.oneOfType([
+  children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node
   ]).isRequired
