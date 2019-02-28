@@ -4,11 +4,14 @@
 }
 
 .cardImageBox{
-	max-height: 400px;
+	/*max-height: 400px;*/
 	overflow: hidden;
 }
+nav {
+	margin-bottom: 1em;
+}
 
-h1{
+p {
 	margin-top: 1em;
 }
 footer{

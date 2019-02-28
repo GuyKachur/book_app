@@ -12,14 +12,23 @@ export default class Book extends Component {
 
   rentChange() {
     this.setState({ rented: !this.state.rented });
+    if (this.state.rented) alert("Book Returned!!"); else alert("Book Rented!!");
   }
 
   decideButtonClass() {
-    var isRentedString = "btn-success";
+    var isRentedString = "btn-primary";
     if (this.state.rented) {
       isRentedString = "btn-danger";
     }
     return "btn " + isRentedString;
+  }
+
+  decideButtonText(){
+    if(this.state.rented){
+      return "Return";
+    } else {
+      return "Rent";
+    }
   }
 
   render() {
@@ -36,12 +45,11 @@ export default class Book extends Component {
           <h4 className="card-title">{this.props.book.title}</h4>
           <h5>{this.props.book.author}</h5>
           <p>{this.props.book.description}</p>
-          {/*<span>{"Rented: " + this.state.rented}</span>*/}
           <button
             onClick={this.rentChange.bind(this)}
-            className="btn btn-primary"
+            className={this.decideButtonClass(1)}
           >
-            Rent Me
+            {this.decideButtonText()}
           </button>
         </div>
       </div>

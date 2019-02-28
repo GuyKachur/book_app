@@ -7,7 +7,9 @@ export default class AboutPage extends Component {
     return (
       <MainTemplate>
         <div className="container">
-          <h1>About Book Lender</h1>
+          <div className="text-center">
+            <h1>About Book Lender</h1>
+          </div>
           <p>
             Go walk around your neighboorhood, did you find one of those cool
             book drops, thats full of books that people have left, sort of give

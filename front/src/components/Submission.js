@@ -82,7 +82,7 @@ export default class Submission extends Component {
         <div className="container">
           <h1 className="text-center">Submit a Book</h1>
           <div className="row justify-content-center">
-            <form className="" onSubmit={this.onCreateBook.bind(this)}>
+            <form className="col-md-10" onSubmit={this.onCreateBook.bind(this)}>
               <div className="form-group">
                 <label htmlFor="inTitle"> Title:</label>
                 <input
@@ -126,7 +126,7 @@ export default class Submission extends Component {
                   ref={input => (this.myInputBookURL = input)}
                 />
               </div>
-              <input type="submit" value="Submit" />
+              <input className="btn btn-primary" type="submit" value="Submit" />
             </form>
           </div>
         </div>
